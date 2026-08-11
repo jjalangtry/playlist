@@ -7,7 +7,7 @@ import { LinkConverter } from "@/components/link-converter";
 export const metadata: Metadata = {
   title: "Convert a Link",
   description:
-    "Convert Spotify and Apple Music song, album, and artist links to the other service instantly. No sign-in required.",
+    "Convert song, album, and artist links between Spotify, Apple Music, Deezer, TIDAL, YouTube Music, and Amazon Music. No sign-in required.",
   alternates: { canonical: "/convert" },
 };
 
@@ -36,7 +36,7 @@ export default async function ConvertPage({
               Convert a link
             </Heading>
             <Text as="p" className="mx-auto mt-4 max-w-lg text-balance text-secondary sm:text-lg">
-              One link in, five services out. Playlists become 48-hour share links.
+              One link in, every service out. Playlists become 48-hour share links.
             </Text>
           </Stack>
           <Stack as="section" className="mx-auto w-full max-w-6xl pb-16 pt-8">

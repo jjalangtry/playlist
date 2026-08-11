@@ -4,6 +4,7 @@ import { SessionProvider } from "next-auth/react";
 import { AppShell } from "@astryxdesign/core/AppShell";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 import { auth } from "@/lib/auth";
 import "./layers.css";
 import "./globals.css";
@@ -124,6 +125,7 @@ export default async function RootLayout({
             <AppShell height="auto" variant="surface" contentPadding={0}>
               <Header />
               {children}
+              <Footer />
             </AppShell>
           </SessionProvider>
         </ThemeProvider>

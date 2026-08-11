@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Heading } from "@astryxdesign/core/Heading";
 import { Stack } from "@astryxdesign/core/Stack";
 import { Text } from "@astryxdesign/core/Text";
@@ -20,7 +20,6 @@ import {
 import {
   IconArrowsExchange,
   IconEyeOff,
-  IconLoader2,
   IconPlaylist,
 } from "@tabler/icons-react";
 
@@ -50,36 +49,24 @@ function FeatureCard({
 
 export default function HomePage() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
 
-  // Check Spotify session and redirect to dashboard if authenticated
+  // Check the Spotify session in the background and move signed-in users to
+  // the dashboard. The page renders immediately — the old spinner gate made
+  // the server-rendered HTML empty, which blocked search indexing.
   useEffect(() => {
     const checkSession = async () => {
       try {
         const response = await fetch("/api/spotify/session");
         const data = await response.json();
         if (data.session) {
-          router.push("/dashboard");
-          return;
+          router.replace("/dashboard");
         }
       } catch (error) {
         console.error("Failed to check session:", error);
-      } finally {
-        setIsLoading(false);
       }
     };
     checkSession();
   }, [router]);
-
-  if (isLoading) {
-    return (
-      <Stack className="min-h-screen bg-body">
-        <Stack direction="horizontal" className="flex items-center justify-center py-20">
-          <IconLoader2 className="h-8 w-8 animate-spin text-accent" />
-        </Stack>
-      </Stack>
-    );
-  }
 
   return (
     <Stack className="min-h-screen bg-body">

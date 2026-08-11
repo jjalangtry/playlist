@@ -194,8 +194,8 @@ export default async function ConversionPairPage({ params }: PageProps) {
       />
       <Stack className="relative">
         <Stack aria-hidden className="hero-staff pointer-events-none absolute inset-x-0 top-0 h-72" />
-        <Stack className="container relative mx-auto px-4">
-          <Stack as="section" className="mx-auto max-w-2xl pt-12 text-center sm:pt-16">
+        <Stack className="relative mx-auto w-full px-4">
+          <Stack as="section" className="mx-auto w-full max-w-2xl pt-12 text-center sm:pt-16">
             <Heading level={1} className="font-display text-balance text-3xl font-bold tracking-tight sm:text-4xl">
               Convert {from.name} to {to.name}
             </Heading>
@@ -206,11 +206,11 @@ export default async function ConversionPairPage({ params }: PageProps) {
             </Text>
           </Stack>
 
-          <Stack as="section" className="mx-auto max-w-2xl pb-10 pt-8">
+          <Stack as="section" className="mx-auto w-full max-w-4xl pb-10 pt-8">
             <LinkConverter showHistory={false} />
           </Stack>
 
-          <Stack as="section" className="mx-auto max-w-2xl pb-10">
+          <Stack as="section" className="mx-auto w-full max-w-2xl pb-10">
             <Heading level={2} className="text-xs font-semibold uppercase tracking-wide text-secondary">
               How it works
             </Heading>
@@ -235,7 +235,7 @@ export default async function ConversionPairPage({ params }: PageProps) {
             </Text>
           </Stack>
 
-          <Stack as="section" className="mx-auto max-w-2xl pb-10">
+          <Stack as="section" className="mx-auto w-full max-w-2xl pb-10">
             <Heading level={2} className="text-xs font-semibold uppercase tracking-wide text-secondary">
               Common questions
             </Heading>
@@ -251,7 +251,7 @@ export default async function ConversionPairPage({ params }: PageProps) {
             </dl>
           </Stack>
 
-          <Stack as="section" className="mx-auto max-w-2xl pb-16">
+          <Stack as="section" className="mx-auto w-full max-w-2xl pb-16">
             <Heading level={2} className="text-xs font-semibold uppercase tracking-wide text-secondary">
               Other directions
             </Heading>
