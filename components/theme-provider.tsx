@@ -40,14 +40,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const root = window.document.documentElement;
     
+    // Write the resolved mode to data-theme on <html>. The Tailwind `dark:`
+    // variant and the Astryx reset both read this attribute. The Astryx Theme
+    // component removes the attribute in system mode, so this parent effect
+    // must set it after the child effect runs.
     const applyTheme = (isDark: boolean) => {
-      if (isDark) {
-        root.classList.add("dark");
-        setResolvedTheme("dark");
-      } else {
-        root.classList.remove("dark");
-        setResolvedTheme("light");
-      }
+      root.dataset.theme = isDark ? "dark" : "light";
+      setResolvedTheme(isDark ? "dark" : "light");
     };
 
     if (theme === "system") {

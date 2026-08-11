@@ -364,11 +364,11 @@ interface RowProps {
 
 function ConnectionRow({ logo, tileClass, name, status, action }: RowProps) {
   return (
-    <Stack className="flex flex-col rounded-lg border border-border/70 bg-card p-5 shadow-sm transition-shadow hover:shadow-md">
+    <Stack className="flex flex-col rounded-lg border border-border/70 bg-card p-4 shadow-sm transition-shadow hover:shadow-md">
       <Stack direction="horizontal" align="center" className="gap-3">
         <Stack
           className={cn(
-            "flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-on-dark shadow-sm",
+            "flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-on-dark shadow-sm",
             tileClass
           )}
         >
@@ -379,11 +379,11 @@ function ConnectionRow({ logo, tileClass, name, status, action }: RowProps) {
       <Stack
         direction="horizontal"
         align="center"
-        className="mt-3.5 min-h-8 flex-1 gap-1.5 text-xs leading-relaxed text-secondary"
+        className="mt-2.5 min-h-6 flex-1 gap-1.5 text-xs leading-relaxed text-secondary"
       >
         {status}
       </Stack>
-      <Stack direction="horizontal" align="center" className="mt-auto pt-3.5">
+      <Stack direction="horizontal" align="center" className="mt-auto pt-2.5">
         {action}
       </Stack>
     </Stack>
@@ -432,7 +432,7 @@ function ConnectionPanel({ spotify, apple, youtube, tidal, deezer }: ConnectionP
   return (
     <Stack className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <ConnectionRow
-        logo={<SpotifyLogo className="h-5.5 w-5.5" />}
+        logo={<SpotifyLogo className="h-4.5 w-4.5" />}
         tileClass="bg-green-ring"
         name="Spotify"
         status={
@@ -470,14 +470,14 @@ function ConnectionPanel({ spotify, apple, youtube, tidal, deezer }: ConnectionP
               isDisabled={spotify.loading}
               isLoading={spotify.loading}
               variant="primary"
-              size="lg"
+              size="sm"
               tooltip="Connect Spotify"
             />
           )
         }
       />
       <ConnectionRow
-        logo={<AppleLogo className="h-5.5 w-5.5" />}
+        logo={<AppleLogo className="h-4.5 w-4.5" />}
         tileClass="bg-red-ring"
         name="Apple Music"
         status={
@@ -506,7 +506,7 @@ function ConnectionPanel({ spotify, apple, youtube, tidal, deezer }: ConnectionP
               isDisabled={apple.loading || !apple.ready}
               isLoading={apple.loading}
               variant="primary"
-              size="lg"
+              size="sm"
               tooltip={!apple.ready ? "Loading Apple Music" : "Connect Apple Music"}
             />
           )
@@ -514,14 +514,14 @@ function ConnectionPanel({ spotify, apple, youtube, tidal, deezer }: ConnectionP
       />
       {tidal?.configured && (
         <ConnectionRow
-          logo={<TidalLogo className="h-5.5 w-5.5" />}
+          logo={<TidalLogo className="h-4.5 w-4.5" />}
           tileClass="bg-gray-ring ring-1 ring-border"
           name="TIDAL"
           status={
             <>
               <StatusDot connected={tidal.connected} />
               {tidal.connected ? (
-                <Text>Connected · ISRC-exact playlist import</Text>
+                <Text>Connected, ISRC-exact playlist import</Text>
               ) : (
                 <Text>Official sign-in for private playlist imports</Text>
               )}
@@ -541,7 +541,7 @@ function ConnectionPanel({ spotify, apple, youtube, tidal, deezer }: ConnectionP
                 icon={<TidalLogo className="h-4 w-4" />}
                 onClick={tidal.onConnect}
                 variant="primary"
-                size="lg"
+                size="sm"
                 tooltip="Connect TIDAL"
               />
             )
@@ -550,7 +550,7 @@ function ConnectionPanel({ spotify, apple, youtube, tidal, deezer }: ConnectionP
       )}
       {youtube?.configured && (
         <ConnectionRow
-          logo={<YouTubeMusicLogo className="h-5.5 w-5.5" />}
+          logo={<YouTubeMusicLogo className="h-4.5 w-4.5" />}
           tileClass="bg-red-ring"
           name="YouTube Music"
           status={
@@ -577,7 +577,7 @@ function ConnectionPanel({ spotify, apple, youtube, tidal, deezer }: ConnectionP
                 icon={<YouTubeMusicLogo className="h-4 w-4" />}
                 onClick={youtube.onConnect}
                 variant="primary"
-                size="lg"
+                size="sm"
                 tooltip="Connect YouTube Music"
               />
             )
@@ -586,15 +586,15 @@ function ConnectionPanel({ spotify, apple, youtube, tidal, deezer }: ConnectionP
       )}
       {deezer?.configured && (
         <ConnectionRow
-          logo={<DeezerLogo className="h-5.5 w-5.5" />}
+          logo={<DeezerLogo className="h-4.5 w-4.5" />}
           tileClass="bg-purple-ring"
-          name="Deezer · Advanced"
+          name="Deezer"
           status={
             <>
               <StatusDot connected={deezer.connected} />
               {deezer.connected ? (
                 <Text className="truncate">
-                  Connected{deezer.userName ? ` as ${deezer.userName}` : ""} · unofficial
+                  Connected{deezer.userName ? ` as ${deezer.userName}` : ""}, unofficial
                 </Text>
               ) : (
                 <Text>Opt-in import using your browser session</Text>
@@ -615,7 +615,7 @@ function ConnectionPanel({ spotify, apple, youtube, tidal, deezer }: ConnectionP
                 icon={<DeezerLogo className="h-4 w-4" />}
                 onClick={deezer.onConnect}
                 variant="primary"
-                size="lg"
+                size="sm"
                 tooltip="Connect Deezer"
               />
             )

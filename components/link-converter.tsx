@@ -746,7 +746,7 @@ export function LinkConverter({
           "rounded-full border border-border/70 bg-surface transition-all focus-within:border-accent focus-within:ring-2 focus-within:ring-accent-muted",
           compact
             ? "p-1 pl-1.5 shadow-sm"
-            : "mx-auto w-full max-w-4xl p-1.5 pl-2 shadow-lg focus-within:shadow-xl sm:p-2.5 sm:pl-4"
+            : "mx-auto w-full max-w-4xl p-1 pl-2 shadow-lg focus-within:shadow-xl sm:p-1.5 sm:pl-4"
         )}
       >
         <StackItem size="fill">
@@ -763,7 +763,7 @@ export function LinkConverter({
             width="100%"
             className={cn(
               "border-0 bg-transparent shadow-none",
-              compact ? "h-8" : "h-12 sm:h-14 [&_input]:sm:text-lg"
+              compact ? "h-8" : "[&_input]:sm:text-lg"
             )}
           />
         </StackItem>

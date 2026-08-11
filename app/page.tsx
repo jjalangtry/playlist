@@ -93,8 +93,10 @@ export default function HomePage() {
             <Stack
               direction="horizontal"
               wrap="wrap"
-              className="mx-auto mb-8 inline-flex items-center justify-center gap-2.5 rounded-full border border-border/70 bg-body/70 px-4 py-2 text-xs font-medium text-secondary shadow-sm backdrop-blur"
+              className="mx-auto mb-8 inline-flex items-center justify-center gap-2.5 rounded-full border border-border/70 bg-card px-4 py-2 text-xs font-medium text-secondary shadow-md"
             >
+              {/* The logo sequence is the same as the service list in the
+                  tagline below. Amazon Music is last because it is search-only. */}
               <SpotifyLogo className="h-3.5 w-3.5 text-green-vivid" />
               <AppleLogo className="h-3.5 w-3.5 text-red-vivid" />
               <Equalizer className="h-3 text-accent" />
@@ -111,7 +113,7 @@ export default function HomePage() {
               className="font-display text-4xl sm:text-6xl"
             >
               I made a music converter.{" "}
-              <DancingLetters text="I use it myself" className="text-accent" />.
+              <DancingLetters text="I use it myself" className="text-green-vivid" />.
             </Heading>
             <Text as="p" className="mx-auto mt-5 max-w-2xl text-balance text-lg text-secondary sm:text-xl">
               Paste a link or type a song name. Get matches on Spotify, Apple Music,
@@ -124,8 +126,20 @@ export default function HomePage() {
             <LinkConverter />
           </Stack>
 
-          {/* Why it exists, in three beats */}
+          {/* Sign-in, directly below the tool */}
           <Stack as="section" className="mx-auto w-full max-w-6xl pb-2 pt-12">
+            <Stack direction="horizontal" className="mb-6 flex items-center gap-4">
+              <Stack className="h-px flex-1 bg-border/70" />
+              <Text type="supporting" color="secondary" weight="semibold" className="uppercase">
+                Or sign in to convert full playlists
+              </Text>
+              <Stack className="h-px flex-1 bg-border/70" />
+            </Stack>
+            <ServiceConnect />
+          </Stack>
+
+          {/* Why it exists, in three beats */}
+          <Stack as="section" className="mx-auto w-full max-w-6xl pb-20 pt-14">
             <Stack className="grid gap-4 sm:grid-cols-3">
               <FeatureCard icon={<IconArrowsExchange size={19} />} title="Every direction">
                 One link becomes six. Tracks, albums, and artists matched across
@@ -140,18 +154,6 @@ export default function HomePage() {
                 not on a server.
               </FeatureCard>
             </Stack>
-          </Stack>
-
-          {/* Sign-in, demoted below the tool */}
-          <Stack as="section" className="mx-auto w-full max-w-6xl pb-20 pt-14">
-            <Stack direction="horizontal" className="mb-6 flex items-center gap-4">
-              <Stack className="h-px flex-1 bg-border/70" />
-              <Text type="supporting" color="secondary" weight="semibold" className="uppercase">
-                Or sign in to convert full playlists
-              </Text>
-              <Stack className="h-px flex-1 bg-border/70" />
-            </Stack>
-            <ServiceConnect />
           </Stack>
         </Stack>
       </Stack>
